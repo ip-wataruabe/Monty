@@ -10,7 +10,7 @@ public class QuizMaster {
 	public void lineUpDoors(int numberOfAlternatives) {
 		doors = new HashMap<Integer, Door>();
 		for(int i = 0; i < numberOfAlternatives; i++) {
-			doors.put(new Integer(numberOfAlternatives) ,new Door());
+			doors.put(new Integer(i) ,new Door());
 		}
 
 		int coiceOfRightAnswer = getRandomOneCoiceOf(numberOfAlternatives);
