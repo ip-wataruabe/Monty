@@ -48,6 +48,10 @@ public class QuizMaster {
 		return doors.get(doorKey).isOpened();
 	}
 
+	public boolean hasHideenTheTreasureIn(Integer doorKey) {
+		return doors.get(doorKey).hasTreasure();
+	}
+
 	private int getRandomOneChoiceOf(int numberOfAlternatives) {
 		Random dice = new Random();
 		return dice.nextInt(numberOfAlternatives);

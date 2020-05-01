@@ -18,10 +18,10 @@ public class Answerer {
 		this.mode = mode;
 	}
 
-	public Integer makeTheFirstAnswer(Map<Integer, String> choices) {
+	public Integer makeAChoice(Map<Integer, String> choices, Scanner scan) {
 		Integer answer;
 		if (mode == ChoiceMode.manual) {
-			answer = makeAManualChoice(choices);
+			answer = makeAManualChoice(choices, scan);
 		} else {
 			answer = makeAnAutoChoice(choices);
 		}
@@ -29,9 +29,8 @@ public class Answerer {
 		return answer;
 	}
 
-	private Integer makeAManualChoice(Map<Integer, String> choices) {
+	private Integer makeAManualChoice(Map<Integer, String> choices, Scanner scan) {
 		Integer answer;
-		Scanner scan = new Scanner(System.in);
 
 		do {
 			System.out.println("Select your answer");
@@ -43,7 +42,6 @@ public class Answerer {
 
 			answer = Integer.valueOf(input);
 		} while (!choices.containsKey(answer));
-		scan.close();
 
 		return answer;
 	}

@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 import shops.Answerer;
 import shops.Answerer.ChoiceMode;
@@ -27,7 +28,9 @@ public class FirstAvenue {
 		hall.lineUpDoors(choices.size());
 
 		Answerer nameless = new Answerer(ChoiceMode.manual);
-		Integer theFirstChoice = nameless.makeTheFirstAnswer(choices);
+
+		Scanner scan = new Scanner(System.in);
+		Integer theFirstChoice = nameless.makeAChoice(choices, scan);
 
 		hall.openAnEnptyUnselectedDoor(theFirstChoice);
 
@@ -44,6 +47,15 @@ public class FirstAvenue {
 			System.out.println(
 					"The door " + openedKey.toString()
 					+ "(" + openedDoorName + ") has been opened.");
+		}
+
+		Integer theLastChoice = nameless.makeAChoice(choices, scan);
+		scan.close();
+
+		if(hall.hasHideenTheTreasureIn(theLastChoice)) {
+			System.out.println("You've got the treasure!!");
+		} else {
+			System.out.println("You selected a wrong door...");
 		}
 	}
 }
