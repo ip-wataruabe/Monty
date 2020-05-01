@@ -7,29 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Answerer {
-	private ChoiceMode mode;
-
-	public enum ChoiceMode{
-		auto,
-		manual
-	}
-
-	public Answerer (ChoiceMode mode) {
-		this.mode = mode;
-	}
-
-	public Integer makeAChoice(Map<Integer, String> choices, Scanner scan) {
-		Integer answer;
-		if (mode == ChoiceMode.manual) {
-			answer = makeAManualChoice(choices, scan);
-		} else {
-			answer = makeAnAutoChoice(choices);
-		}
-
-		return answer;
-	}
-
-	private Integer makeAManualChoice(Map<Integer, String> choices, Scanner scan) {
+	public Integer makeAManualChoice(Map<Integer, String> choices, Scanner scan) {
 		Integer answer;
 
 		do {
@@ -41,7 +19,7 @@ public class Answerer {
 		return answer;
 	}
 
-	private Integer makeAnAutoChoice(Map<Integer, String> choices) {
+	public Integer makeAnAutoChoice(Map<Integer, String> choices) {
 		List<Integer> choicesList = new ArrayList<>(choices.keySet());
 
 		Random dice = new Random();
