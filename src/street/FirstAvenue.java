@@ -29,6 +29,12 @@ public class FirstAvenue {
 
 		Answerer nameless = new Answerer(ChoiceMode.manual);
 
+
+		System.out.println("Select your answer");
+		choices.forEach((Integer i, String name) -> {
+			System.out.print(i.toString() + " (" + name + "),");
+		});
+		System.out.println();
 		Scanner scan = new Scanner(System.in);
 		Integer theFirstChoice = nameless.makeAChoice(choices, scan);
 
@@ -49,6 +55,11 @@ public class FirstAvenue {
 					+ "(" + openedDoorName + ") has been opened.");
 		}
 
+		System.out.println("Reselect your answer");
+		choices.forEach((Integer j, String name) -> {
+			System.out.print(j.toString() + " (" + name + "),");
+		});
+		System.out.println();
 		Integer theLastChoice = nameless.makeAChoice(choices, scan);
 		scan.close();
 

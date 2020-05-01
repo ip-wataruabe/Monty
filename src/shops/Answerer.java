@@ -33,11 +33,6 @@ public class Answerer {
 		Integer answer;
 
 		do {
-			System.out.println("Select your answer");
-			choices.forEach((Integer index, String name) -> {
-				System.out.print(index.toString() + " (" + name + "),");
-			});
-			System.out.println();
 			String input = scan.nextLine();
 
 			answer = Integer.valueOf(input);
