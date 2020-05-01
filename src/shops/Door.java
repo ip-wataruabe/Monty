@@ -16,4 +16,12 @@ public class Door {
 	void open() {
 		this.isOpened = true;
 	}
+
+	public boolean hasTreasure() {
+		return hasTreasure;
+	}
+
+	public boolean isOpened() {
+		return isOpened;
+	}
 }

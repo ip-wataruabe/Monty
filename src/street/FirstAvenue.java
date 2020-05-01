@@ -28,5 +28,22 @@ public class FirstAvenue {
 
 		Answerer nameless = new Answerer(ChoiceMode.manual);
 		Integer theFirstChoice = nameless.makeTheFirstAnswer(choices);
+
+		hall.openAnEnptyUnselectedDoor(theFirstChoice);
+
+		Integer openedKey = null;
+		for(Integer doorKey: choices.keySet()) {
+			if(hall.hasOpenedTheDoor(doorKey)) {
+				openedKey = doorKey;
+			}
+		}
+
+		if(openedKey != null) {
+			String openedDoorName = choices.get(openedKey);
+			choices.remove(openedKey);
+			System.out.println(
+					"The door " + openedKey.toString()
+					+ "(" + openedDoorName + ") has been opened.");
+		}
 	}
 }
