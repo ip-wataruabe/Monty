@@ -36,12 +36,14 @@ public class Answerer {
 		do {
 			System.out.println("Select your answer");
 			choices.forEach((Integer index, String name) -> {
-				System.out.print(index.toString() + " (" + name + ")");
+				System.out.print(index.toString() + " (" + name + "),");
 			});
+			System.out.println();
 			String input = scan.nextLine();
 
 			answer = Integer.valueOf(input);
-		} while (choices.containsKey(answer));
+		} while (!choices.containsKey(answer));
+		scan.close();
 
 		return answer;
 	}
